@@ -6,66 +6,7 @@
     <title>Cửa hàng đồ chơi trẻ em</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Thêm CSS inline để tạo màu sắc cho phần tử HTML */
-        header {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        nav ul li a {
-            color: #333;
-        }
-
-        .product {
-            background-color: #ffffff;
-        }
-
-        .product h2 {
-            color: #333;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .intro {
-            background-color: #f2f2f2;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .featured-products {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .toy {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .toy img {
-            width: 100%;
-            border-radius: 10px;
-        }
+        /* CSS styles here */
     </style>
 </head>
 <body>
@@ -91,18 +32,39 @@
                 <h2>Tên đồ chơi</h2>
                 <h2>Đồ chơi mini</h2>
                 <p>Mô tả về đồ chơi...</p>
-                <button>Thêm vào giỏ hàng</button>
-                <img src="../RES/aa3.jpg"  alt="Đồ chơi 2"
-                <h3>Tên đồ chơi</h3>
-                <h3>Lắp ráp hoạt hình</h3>
+                <button onclick="addToCart('Đồ chơi 1')">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="toy">
+                <img src="../RES/aa3.jpg"  alt="Đồ chơi 2">
+                <h2>Tên đồ chơi</h2>
+                <h2>Lắp ráp hoạt hình</h2>
                 <p>Mô tả về đồ chơi...</p>
-                <button>Thêm vào giỏ hàng</button>
+                <button onclick="addToCart('Đồ chơi 2')">Thêm vào giỏ hàng</button>
             </div>
             <!-- Các sản phẩm khác có thể được thêm ở đây -->
         </section>
     </main>
+    <div id="cart" class="intro"> <!-- Thêm phần giỏ hàng vào đây -->
+        <h2>Giỏ hàng</h2>
+        <p id="cartItems">Số lượng sản phẩm trong giỏ hàng: 0</p>
+    </div>
     <footer>
         <p>&copy; 2024 Cửa hàng đồ chơi. Bảo lưu mọi quyền.</p>
     </footer>
+
+    <script>
+        var cartItemCount = 0;
+
+        function addToCart(productName) {
+            cartItemCount++;
+            updateCart();
+            alert("Sản phẩm " + productName + " đã được thêm vào giỏ hàng!");
+        }
+
+        function updateCart() {
+            var cartItems = document.getElementById("cartItems");
+            cartItems.textContent = "Số lượng sản phẩm trong giỏ hàng: " + cartItemCount;
+        }
+    </script>
 </body>
 </html>
